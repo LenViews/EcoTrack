@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.navigationuidemo2.TenantViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".AddTenant">
+
+        <!-- Input Fields -->
+        <EditText
+            android:id="@+id/fullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Full Name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="16dp"/>
+
+        <EditText
+            android:id="@+id/unitNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Unit Number"
+            app:layout_constraintTop_toBottomOf="@id/fullName"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="16dp"/>
+
+        <EditText
+            android:id="@+id/fullRent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Monthly Rent"
+            app:layout_constraintTop_toBottomOf="@id/unitNumber"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="16dp"/>
+
+        <!-- Add Tenant Button -->
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Tenant"
+            app:layout_constraintTop_toBottomOf="@id/fullRent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Tenant Info Display -->
+        <TextView
+            android:id="@+id/tvAddTenantInfo"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="44dp"
+            android:text="@{viewModel.capitalizedTenantInfo}"
+            app:layout_constraintTop_toBottomOf="@+id/button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Tenant Counter -->
+        <TextView
+            android:id="@+id/tvTenantCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{"Total Tenants: " + viewModel.tenantCount}'
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Back Button -->
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            app:layout_constraintBottom_toTopOf="@id/tvTenantCount"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="16dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
